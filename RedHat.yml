@@ -1,28 +1,28 @@
- - name: Install RedHat Apache
-    yum:
-      name: httpd
-      state: latest
+- name: Install RedHat Apache
+  yum:
+    name: httpd
+    state: latest
 
-  - name: Make sure a service is running
-    systemd:
-      state: started
-      name: httpd
-      enabled: yes
-      
+- name: Make sure a service is running
+  systemd:
+    state: started
+    name: httpd
+    enabled: yes
+    
 
-  - name: Install Unzip
-    yum:
-      name: unzip
-      state: latest    
+- name: Install Unzip
+  yum:
+    name: unzip
+    state: latest    
 
-  - name: Unarchive a file that needs to be downloaded 
-    unarchive:
-      src: https://www.free-css.com/assets/files/free-css-templates/download/page276/transportz.zip
-      dest: /tmp/
-      remote_src: yes
+- name: Unarchive a file that needs to be downloaded 
+  unarchive:
+    src: https://www.free-css.com/assets/files/free-css-templates/download/page276/transportz.zip
+    dest: /tmp/
+    remote_src: yes
 
-  - name: Copy files to /var/www/html
-    copy:
-      src: /tmp/transportz/
-      dest: /var/www/html/
-      remote_src: yes
+- name: Copy files to /var/www/html
+  copy:
+    src: /tmp/transportz/
+    dest: /var/www/html/
+    remote_src: yes
